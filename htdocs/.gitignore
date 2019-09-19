@@ -1,0 +1,4 @@
+admin/
+frontend/
+assets/
+!.gitignore
