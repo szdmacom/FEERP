@@ -26,8 +26,6 @@ service.interceptors.request.use(
         token: getToken(),
         ...config.data
       }
-
-      console.log(config)
     }
     return config
   },
