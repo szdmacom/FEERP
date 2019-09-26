@@ -19,7 +19,15 @@ service.interceptors.request.use(
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
+      // 采用hearder的方式传输token
       config.headers['X-Token'] = getToken()
+      // 采用post的方式传输token data 采用 get的方式传输tonken
+      config.data = {
+        token: getToken(),
+        ...config.data
+      }
+
+      console.log(config)
     }
     return config
   },

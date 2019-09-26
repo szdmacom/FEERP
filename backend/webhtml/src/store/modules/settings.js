@@ -16,7 +16,7 @@ const mutations = {
     if (state.hasOwnProperty(key)) {
       state[key] = value
     }
-  }
+}
 }
 
 const actions = {

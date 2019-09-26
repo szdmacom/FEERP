@@ -31,7 +31,7 @@ return [
                 ],
                 'refresh_token' => [
                     'class' => 'OAuth2\GrantType\RefreshToken',
-                    'always_issue_new_refresh_token' => true
+//                    'always_issue_new_refresh_token' => true,
                 ],
                 'authorization_code' => [
                     'class' => 'OAuth2\GrantType\AuthorizationCode'
@@ -45,7 +45,10 @@ return [
                     'class' => \filsh\yii2\oauth2server\Response::className(),
                 ],
             ],
-        ]
+        ],
+        'v1' => [
+            'class' => 'api\modules\v1\Module',
+        ],
     ],
     'components' => [
         'authManager' => [
@@ -95,6 +98,8 @@ return [
             'site/*',//允许访问的节点，可自行添加
             'rbac/*',//可将路由配置到“普通员工”（默认角色）下
             'oauth2/*',//可将路由配置到“普通员工”（默认角色）下
+            'user/*',
+            'gii/*',
         ]
     ],
     'params' => $params,

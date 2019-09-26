@@ -103,7 +103,12 @@ $rules = [
             'POST revoke' => 'revoke',
             'GET assign-user' => 'assign-user',
         ]
-    ]
+    ],
+    //产品
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => ['v1/goods']
+    ],
 ];
 
 return $rules;
