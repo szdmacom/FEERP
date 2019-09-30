@@ -1,4 +1,5 @@
 <?php
+
 namespace api\controllers;
 
 use Yii;
@@ -23,17 +24,17 @@ class SiteController extends Controller
                 'rules' => [
                     [
                         'actions' => ['login', 'error', 'index'],
-                        'allow' => true,
+                        'allow'   => true,
                     ],
                     [
                         'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -60,7 +61,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        var_dump('111');exit;
+        var_dump('111');
+        exit;
+
         return $this->render('index');
     }
 

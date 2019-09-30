@@ -1,6 +1,8 @@
 <?php
+
 namespace api\models;
 
+use filsh\yii2\oauth2server\Module;
 use Yii;
 use common\models\User as commonUser;
 use OAuth2\Storage\UserCredentialsInterface;
@@ -12,12 +14,13 @@ class User extends commonUser implements UserCredentialsInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        /** @var \filsh\yii2\oauth2server\Module $module */
-        $module = Yii::$app->getModule('oauth2');
-        $token = $module->getServer()->getResourceController()->getToken();
+        /** @var Module $module */
+        $module = Yii ::$app -> getModule('oauth2');
+        $token  = $module -> getServer() -> getResourceController() -> getToken();
+
         return !empty($token['user_id'])
-            ? static::findIdentity($token['user_id'])
-            : null;
+            ? static ::findIdentity($token['user_id'])
+            :null;
     }
 
     /**
@@ -25,11 +28,12 @@ class User extends commonUser implements UserCredentialsInterface
      */
     public function checkUserCredentials($username, $password)
     {
-        $user = static::findByUsername($username);
+        $user = static ::findByUsername($username);
         if (empty($user)) {
             return false;
         }
-        return $user->validatePassword($password);
+
+        return $user -> validatePassword($password);
     }
 
     /**
@@ -37,7 +41,8 @@ class User extends commonUser implements UserCredentialsInterface
      */
     public function getUserDetails($username)
     {
-        $user = static::findByUsername($username);
-        return ['user_id' => $user->getId()];
+        $user = static ::findByUsername($username);
+
+        return ['user_id' => $user -> getId()];
     }
 }

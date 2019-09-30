@@ -1,4 +1,5 @@
 <?php
+
 namespace api\controllers;
 
 use Yii;
@@ -13,27 +14,30 @@ class UserController extends RestController
     public function actionToken()
     {
         $OauthModule = Yii::$app->getModule('oauth2');
-        $response = $OauthModule->getServer()->handleTokenRequest();
-        $res= $response->getParameters();
-        if(!empty($res['access_token'])){
-            $res['code']=20000;
-            $res['message']='sucsess';
+        $response    = $OauthModule->getServer()->handleTokenRequest();
+        $res         = $response->getParameters();
+        if (!empty($res['access_token'])) {
+            $res['code']    = 20000;
+            $res['message'] = 'sucsess';
         }
+
         return $res;
     }
+
     public function actionInfo()
     {
         $res = array(
-            "code" => 20000,
+            "code"    => 20000,
             "message" => 'sucsess',
-            'data' => array(
-                "roles" => ['admin'],
+            'data'    => array(
+                "roles"        => ['admin'],
                 "introduction" => "I am a super administrator",
-                "avatar" => "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-                "name" => "Super Admin",
-                "mark" => "api server",
-            )
+                "avatar"       => "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+                "name"         => "Super Admin",
+                "mark"         => "api server",
+            ),
         );
+
         return $res;
     }
 
@@ -53,36 +57,47 @@ class UserController extends RestController
 //        }
 //      }
         $res = [
-            "code" => 20000,
+            "code"    => 20000,
             "message" => 'sucsess',
-            'data' =>[
+            'data'    => [
                 "total" => 20,
                 "items" => [
                     [
-                        'order_no' => '10001',
+                        'order_no'  => 'EFCcc13A-38DE-3DFD-Ccb7-c39D89',
                         'timestamp' => '',
-                        'username' => 'Aaron',
-                        'price' => '1245',
-                        'status' => 'success'
+                        'username'  => 'Aaron',
+                        'price'     => '1245',
+                        'status'    => 'success',
                     ],
                     [
-                        'order_no' => '10002',
+                        'order_no'  => 'AF5AC9D2-AB1B-f78d-93C4-AafFc1',
                         'timestamp' => '',
-                        'username' => 'Jack',
-                        'price' => '16542',
-                        'status' => 'pending'
+                        'username'  => 'Jack',
+                        'price'     => '16542',
+                        'status'    => 'pending',
                     ],
                     [
-                        'order_no' => '10003',
+                        'order_no'  => 'AD8cB2B3-cAd8-D298-e27e-BAE730',
                         'timestamp' => '',
-                        'username' => 'Luc',
-                        'price' => '2547',
-                        'status' => 'success'
+                        'username'  => 'Luc',
+                        'price'     => '2547',
+                        'status'    => 'success',
                     ],
                 ],
             ],
         ];
+
         return $res;
     }
 
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        $res = array(
+            "code"    => 20000,
+            "message" => 'sucsess',
+        );
+
+        return $res;
+    }
 }

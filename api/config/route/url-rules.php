@@ -14,100 +14,100 @@ $rules = [
     'POST oauth2/<action:\w+>' => 'oauth2/rest/<action>',
     //权限
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/permission'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/permission'],
         'extraPatterns' => [
-            'GET view' => 'view',
-            'DELETE delete' => 'delete',
-            'POST update' => 'update',
-            'POST assign' => 'assign',
-            'POST remove' => 'remove',
+            'GET view'        => 'view',
+            'DELETE delete'   => 'delete',
+            'POST update'     => 'update',
+            'POST assign'     => 'assign',
+            'POST remove'     => 'remove',
             'GET assign-list' => 'assign-list',
-        ]
+        ],
     ],
     //菜单
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/menu'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/menu'],
         'extraPatterns' => [
-            'GET parent' => 'parent',
+            'GET parent'  => 'parent',
             'POST create' => 'create',
             'POST update' => 'update',
-            'GET user' => 'user-menu'
-        ]
+            'GET user'    => 'user-menu',
+        ],
     ],
     //路由
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/route'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/route'],
         'extraPatterns' => [
             'POST remove' => 'remove',
-            'GET  all' => 'all',
+            'GET  all'    => 'all',
             'GET  parent' => 'parent',
-        ]
+        ],
     ],
     //角色
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/role'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/role'],
         'extraPatterns' => [
-            'GET view' => 'view',
-            'DELETE delete' => 'delete',
-            'POST update' => 'update',
-            'POST assign' => 'assign',
+            'GET view'        => 'view',
+            'DELETE delete'   => 'delete',
+            'POST update'     => 'update',
+            'POST assign'     => 'assign',
             'GET assign-list' => 'assign-list',
-            'POST remove' => 'remove',
-        ]
+            'POST remove'     => 'remove',
+        ],
     ],
     //分配
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/assignment'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/assignment'],
         'extraPatterns' => [
-            'GET view' => 'view',
-            'POST assign' => 'assign',
-            'POST revoke' => 'revoke',
-            'GET assign-list' => 'assign-list',
-            'POST remove' => 'remove',
-            'POST assign-batch' => 'assign-batch',
+            'GET view'           => 'view',
+            'POST assign'        => 'assign',
+            'POST revoke'        => 'revoke',
+            'GET assign-list'    => 'assign-list',
+            'POST remove'        => 'remove',
+            'POST assign-batch'  => 'assign-batch',
             'POST assign-remove' => 'remove-users',
-            'GET assign-users' => 'assign-users',
-        ]
+            'GET assign-users'   => 'assign-users',
+        ],
     ],
     //用户
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/user'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/user'],
         'extraPatterns' => [
-            'GET view' => 'view',
+            'GET view'      => 'view',
             'POST activate' => 'activate',
-        ]
+        ],
     ],
     //规则
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/rule'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/rule'],
         'extraPatterns' => [
-            'GET index' => 'get-rules',
+            'GET index'   => 'get-rules',
             'POST create' => 'create',
             'POST delete' => 'delete',
             'POST update' => 'update',
-        ]
+        ],
     ],
     //分组
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['rbac/groups'],
+        'class'         => 'yii\rest\UrlRule',
+        'controller'    => ['rbac/groups'],
         'extraPatterns' => [
-            'POST assign' => 'assign',
-            'POST revoke' => 'revoke',
+            'POST assign'     => 'assign',
+            'POST revoke'     => 'revoke',
             'GET assign-user' => 'assign-user',
-        ]
+        ],
     ],
     //产品
     [
-        'class' => 'yii\rest\UrlRule',
-        'controller' => ['v1/goods']
+        'class'      => 'yii\rest\UrlRule',
+        'controller' => ['v1/goods'],
     ],
 ];
 
