@@ -1,6 +1,6 @@
 <?php
 
-namespace api\controllers;
+namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
@@ -61,8 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        var_dump('111');
-        exit;
+        exit('111');
 
         return $this->render('index');
     }

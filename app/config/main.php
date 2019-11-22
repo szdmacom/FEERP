@@ -7,9 +7,9 @@ $params = array_merge(
 );
 
 return [
-    'id'                  => 'app-api',
+    'id'                  => 'app-app',
     'basePath'            => dirname(__DIR__),
-    'controllerNamespace' => 'api\controllers',
+    'controllerNamespace' => 'app\controllers',
     'bootstrap'           => ['log'],
     'modules'             => [
         'rbac'   => [
@@ -20,7 +20,7 @@ return [
             'tokenParamName'      => 'access_token',
             'tokenAccessLifetime' => 3600 * 24,
             'storageMap'          => [
-                'user_credentials' => 'api\models\User',
+                'user_credentials' => 'app\models\User',
             ],
             'grantTypes'          => [
                 'user_credentials'   => [
@@ -47,7 +47,10 @@ return [
             ],
         ],
         'v1'     => [
-            'class' => 'api\modules\v1\Module',
+            'class' => 'app\modules\v1\Module',
+        ],
+        'admin'     => [
+            'class' => 'app\modules\admin\Module',
         ],
     ],
     'components'          => [
@@ -65,7 +68,7 @@ return [
             ],
         ],
         'user'         => [
-            'identityClass'   => 'api\models\User',
+            'identityClass'   => 'app\models\User',
             'enableAutoLogin' => true,
             'identityCookie'  => ['name' => '_identity-api', 'httpOnly' => true],
             'loginUrl'        => array('site/login'), //设置默认的鉴权失败的登陆地址
@@ -100,6 +103,8 @@ return [
             'oauth2/*',//可将路由配置到“普通员工”（默认角色）下
             'user/*',
             'gii/*',
+            'v1/*',
+            'admin/*',
         ],
     ],
     'params'              => $params,

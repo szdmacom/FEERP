@@ -1,13 +1,13 @@
 <?php
 
-namespace api\modules\v1\controllers;
+namespace app\modules\v1\controllers;
 
 use yii\web\Controller;
 
 /**
  * Default controller for the `v1` module
  */
-class DefaultController extends Controller
+class SiteController extends Controller
 {
     /**
      * Renders the index view for the module
@@ -15,6 +15,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        exit('V1 Modules SiteController Index ');
         return $this->render('index');
     }
 }
